@@ -1,0 +1,92 @@
+name: Release on Merge to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Allow creating releases and tagging
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensure all tags and commits are fetched
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Conventional Changelog Angular and Tools
+        run: |
+          npm install --save-dev conventional-changelog-angular
+          npm install --save-dev conventional-recommended-bump
+          npm install --save-dev semver
+
+      - name: Determine new version based on conventional commits.
+        id: version
+        run: |
+          git fetch --tags
+
+          # Get the current version
+          current_version=$(git describe --tags --abbrev=0 || echo "v0.0.0")
+          current_version=${current_version#v}
+
+          # Determine the bump type
+          bump_type=$(npx conventional-recommended-bump -p conventional-changelog-angular)
+
+          # Calculate the new version
+          new_version=$(npx semver "$current_version" -i "$bump_type")
+
+          # Set the new version as an environment variable
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "current_version=$current_version" >> $GITHUB_ENV
+
+      - name: Create Git Tag
+        run: |
+          git tag "v${{ env.new_version }}"
+          git push origin "v${{ env.new_version }}"
+
+      - name: Create Draft GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: 'v${{ env.new_version }}'
+          release_name: 'Release v${{ env.new_version }}'
+          draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Release notes, update release and mark as latest
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: releaseNotes } = await github.rest.repos.generateReleaseNotes({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: `v${process.env.new_version}`,
+              previous_tag_name: `v${process.env.current_version}`,
+              target_commitish: "main"
+            });
+
+            // Update the release with generated notes and mark it as latest
+            const releaseId = "${{ steps.create_release.outputs.id }}";
+            await github.rest.repos.updateRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: releaseId,
+              body: releaseNotes.body,
+              draft: false,
+              make_latest: true
+            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
