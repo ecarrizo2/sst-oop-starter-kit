@@ -17,10 +17,7 @@ export async function handle(event: APIGatewayEvent): Promise<APIGatewayProxyRes
     const logger = container.resolve(LoggerService)
     logger.info('HTTP Request received', eventArg)
 
-    const input = await getValidatedRequestInputValueObject(
-      event,
-      SendMessageToQueueExampleRequestDto,
-    )
+    const input = await getValidatedRequestInputValueObject(event, SendMessageToQueueExampleRequestDto)
 
     logger.debug('Request input', input)
     return {

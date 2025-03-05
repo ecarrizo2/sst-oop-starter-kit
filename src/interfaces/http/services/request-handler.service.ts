@@ -12,15 +12,13 @@ import { UnauthorizedRequestError } from '@interfaces/http/errors/unauthorized-r
 
 @injectable()
 export class RequestHandlerService implements RequestHandler {
-  constructor(@inject(LoggerService) private readonly logger: Logger) {
-  }
+  constructor(@inject(LoggerService) private readonly logger: Logger) {}
 
   async handle(resolvingPromise: Promise<unknown>): Promise<APIGatewayProxyResult> {
     try {
       const promiseResult = await resolvingPromise
       return this.successResponse(promiseResult)
     } catch (error) {
-
       if (error instanceof HttpError) {
         return this.handleHTTPError(error)
       }
