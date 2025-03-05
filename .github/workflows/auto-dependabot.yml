@@ -17,7 +17,7 @@ jobs:
 
       - name: Check Dependabot PR and Approve
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.TKWW_GITHUB_TOKEN }}
         run: |
           PR_NUMBER="${{ github.event.pull_request.number }}"
           PR_TITLE="${{ github.event.pull_request.title }}"
@@ -37,6 +37,13 @@ jobs:
           # Check for major version change
           if [[ ${OLD_VERSION%%.*} != ${NEW_VERSION%%.*} ]]; then
             echo "Major version change detected. Skipping auto-merge..."
+            exit 0
+          fi
+
+          # Blacklist check
+          BLACKLIST="newrelic"
+          if echo "$PR_TITLE" | grep -qE "$(echo $BLACKLIST | sed 's/,/|/g')"; then
+            echo "Library is in the blacklist. Skipping auto-merge..."
             exit 0
           fi
 
