@@ -40,13 +40,6 @@ jobs:
             exit 0
           fi
 
-          # Blacklist check
-          BLACKLIST="newrelic"
-          if echo "$PR_TITLE" | grep -qE "$(echo $BLACKLIST | sed 's/,/|/g')"; then
-            echo "Library is in the blacklist. Skipping auto-merge..."
-            exit 0
-          fi
-
           # Auto approve the PR
           echo "Approving PR #$PR_NUMBER..."
           gh pr review $PR_NUMBER --approve --body "Auto-approved by workflow for Dependabot PRs."
