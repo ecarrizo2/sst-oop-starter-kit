@@ -17,7 +17,8 @@ jobs:
 
       - name: Check Dependabot PR and Approve
         env:
-          GITHUB_TOKEN: ${{ secrets.TKWW_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           PR_NUMBER="${{ github.event.pull_request.number }}"
           PR_TITLE="${{ github.event.pull_request.title }}"
