@@ -18,4 +18,4 @@ jobs:
           use-github-auto-merge: true
           target-development: major
           target-production: minor
-          github-token: ${{secrets.GH_TOKEN}}
+          github-token: ${{ secrets.GH_TOKEN }}
