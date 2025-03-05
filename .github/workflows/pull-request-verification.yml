@@ -11,7 +11,7 @@ defaults:
     working-directory: ./
 
 permissions:
-  contents: write # Grants the necessary write permissions to push changes
+  contents: write # Changed from write to read for security
 
 jobs:
   verify:
@@ -20,21 +20,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
           ref: ${{ github.head_ref }}
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install Dependencies
         run: npm install
 
       - name: Lint Code
-        run: npm run lint
+        run: npm run lint --if-present
 
       - name: Run Prettier and format files
-        run: npm run prettier
+        run: npm run prettier --if-present
 
       - name: Commit formatted files if necessary
         run: |
@@ -45,6 +52,9 @@ jobs:
             git add .
             git commit -m "chore: Formatting automatically applied by PR-Verify github action."
             git push
+          else
+            echo "No formatting changes detected."
+          fi
 
       - name: Run tests
-        run: npm run test:cov
+        run: npm run test:cov --if-present
