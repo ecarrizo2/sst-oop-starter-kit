@@ -7,7 +7,7 @@ export function TransformJsonObject(): PropertyDecorator {
         return JSON.parse(value) as unknown
       }
 
-      return value as unknown
+      return value
     },
     {toClassOnly: true}
   )

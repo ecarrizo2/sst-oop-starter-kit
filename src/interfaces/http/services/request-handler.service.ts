@@ -50,8 +50,6 @@ export class RequestHandlerService implements RequestHandler {
       return this.forbiddenRequestResponse(error)
     }
 
-
-
     // TODO: Add support to other status codes and examples?
     return this.internalServerError()
   }
