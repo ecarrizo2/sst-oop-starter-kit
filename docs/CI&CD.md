@@ -52,7 +52,6 @@ Activated by the following pull request events:
 - **Remove**:  
   Skipped by default, it Deletes an SST application for the pull request stage. It executes if `[pr-env]` tag is in the PR title after a PR is closed .
 
-
 #### Key Steps
 
 - Checkout the code.
@@ -90,8 +89,6 @@ Activated by the following events:
 - Validate formatting, linting, and test coverage.
 
 ---
-
-
 
 ### Release on Merge to Main
 
