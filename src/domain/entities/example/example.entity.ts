@@ -1,6 +1,6 @@
 import { BaseEntity } from '@domain/entities/base.entity'
-import { IsDateString, IsNumber, IsObject, IsString, IsUrl } from 'class-validator'
-import { Exclude, Expose, plainToInstance, Transform } from 'class-transformer'
+import { IsDateString, IsNumber, IsString } from 'class-validator'
+import { Exclude, Expose, plainToInstance } from 'class-transformer'
 import { myValidateOrReject } from '@shared/class-validator/validator.helper'
 
 /**

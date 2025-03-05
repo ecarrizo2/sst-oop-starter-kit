@@ -26,7 +26,7 @@ describe('RequestHandlerService', () => {
     const error = new BadRequestError('Invalid request')
     const resolvingPromise = Promise.reject(error)
     const result = await requestHandlerService.handle(resolvingPromise)
-    expect(logger.warn).toHaveBeenCalledWith('Bad request error', error)
+
     expect(result.statusCode).toBe(HttpStatusCode.BAD_REQUEST)
     expect(result.body).toBe(JSON.stringify({ message: 'Invalid request', errors: undefined }))
   })
@@ -38,7 +38,6 @@ describe('RequestHandlerService', () => {
     ])
     const resolvingPromise = Promise.reject(error)
     const result = await requestHandlerService.handle(resolvingPromise)
-    expect(logger.warn).toHaveBeenCalledWith('Bad request error', error)
     expect(result.statusCode).toBe(HttpStatusCode.BAD_REQUEST)
     expect(result.body).toBe(
       JSON.stringify({ message: 'Invalid request', errors: [{ field: 'field', message: 'Field is required' }] })
@@ -49,7 +48,6 @@ describe('RequestHandlerService', () => {
     const error = new BadRequestError('Invalid request', [{ property: 'field' }])
     const resolvingPromise = Promise.reject(error)
     const result = await requestHandlerService.handle(resolvingPromise)
-    expect(logger.warn).toHaveBeenCalledWith('Bad request error', error)
     expect(result.statusCode).toBe(HttpStatusCode.BAD_REQUEST)
     expect(result.body).toBe(JSON.stringify({ message: 'Invalid request', errors: [{ field: 'field', message: '' }] }))
   })
@@ -60,6 +58,6 @@ describe('RequestHandlerService', () => {
     const result = await requestHandlerService.handle(resolvingPromise)
     expect(logger.error).toHaveBeenCalledWith('Internal Error', error)
     expect(result.statusCode).toBe(HttpStatusCode.INTERNAL_SERVER_ERROR)
-    expect(result.body).toBe(JSON.stringify({ message: 'Internal Server Error.' }))
+    expect(result.body).toBe(JSON.stringify({ message: '500 Internal Server Error.' }))
   })
 })

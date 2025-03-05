@@ -1,4 +1,5 @@
 # SST OOP Starter Kit
+
 The SST OOP Starter Kit is a boilerplate designed for building enterprise-grade serverless applications using the Serverless Stack Toolkit (SST). It incorporates Object-Oriented Programming (OOP) principles, lightweight dependency injection with TSyringe, and out-of-the-box enterprise configurations like CI/CD workflows, pre-configured Git hooks, and more.
 
 This project aims to provide developers with a collaborative, production-ready foundation for serverless application development.
@@ -18,11 +19,10 @@ This project aims to provide developers with a collaborative, production-ready f
 - **GitHub Actions**: CI/CD using GitHub Actions for PR verification and deployment of temporary staging environments for pull requests.
 - **(Git Hooks)**: Pre-commit hooks for linting and formatting code before committing.
 
-
 ...You only have to fork this repository, run `sst dev` and start coding!
 
-
 ## For Reviewers and Developers
+
 If you are looking to review/develop/fork this project, please refer to the following documentation:
 
 - [Running the project locally](./docs/LOCAL_DEVELOPMENT.md)
@@ -32,22 +32,22 @@ If you are looking to review/develop/fork this project, please refer to the foll
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
 - [CI/CD](./docs/CI&CD.md)
 
-
-
 # SST OOP Starter Kit
 
-The **SST OOP Starter Kit** is a boilerplate designed for building **enterprise-grade serverless applications** 
+The **SST OOP Starter Kit** is a boilerplate designed for building **enterprise-grade serverless applications**
 using the **Serverless Stack Toolkit (SST)**. It incorporates **Object-Oriented Programming (OOP)** principles,
-lightweight **dependency injection with TSyringe**, and out-of-the-box enterprise configurations like CI/CD workflows, 
+lightweight **dependency injection with TSyringe**, and out-of-the-box enterprise configurations like CI/CD workflows,
 pre-configured Git hooks, and more.
 
-This project aims to provide developers with a collaborative, production-ready foundation for serverless application 
+This project aims to provide developers with a collaborative, production-ready foundation for serverless application
 development.
+
 ---
 
 ## 🔥 Key Features
 
 ### Core Frameworks & Tools
+
 - **SST**  
   Build and manage serverless applications seamlessly using the **Serverless Stack Toolkit**, powered by AWS CDK.
 
@@ -64,24 +64,24 @@ development.
   Use Class Transformer and Class Validator libraries to transform plain objects into instances and perform State validations
 
 ### Built-in Enterprise Configurations
+
 - **CI/CD with GitHub Actions Examples**  
   Pre-configured workflows for:
-    - Pull Request verification.
-    - Automatic deployment of **temporary staging environments**(PR Environments) for PRs.
-    - Seamless automated staging deployment.
-    - Automated semantic versioning and Github Releases generation
 
-- **Git Hooks Examples**  
+  - Pull Request verification.
+  - Automatic deployment of **temporary staging environments**(PR Environments) for PRs.
+  - Seamless automated staging deployment.
+  - Automated semantic versioning and Github Releases generation
+
+- **Git Hooks Examples**
+
   - pre-commit Hook:
     - Automatic Formatting using Prettier to ensure consistent code formatting.
     - Code linting using ESLint.
-    
   - commit-message Hook:
     - Enforce **Conventional Commits** for clear, semantic versioning and changelog generation.
-    
   - pre-push Hook:
     - Run tests before pushing to the remote repository.
-
 
 - **Conventional Commits**  
   Enforced commit message standards for clear, semantic versioning and changelog generation.
@@ -89,7 +89,9 @@ development.
 ---
 
 ## 🌟 Use Cases
+
 This starter kit is a POC for various tools and configurations aimed at solving real-world problems, including:
+
 - Building serverless applications with **infrastructure-as-code** capabilities for APIs, queues, SSL, DNS, and more.
 - Providing an architecture to integrate **image analysis** and **speech generation**, which can power accessibility features in larger applications.
 
@@ -135,6 +137,7 @@ To begin using the SST OOP Starter Kit, follow the detailed guides below:
 ## 🧑‍💻 Contributing
 
 We welcome contributions to this project! If you're interested in contributing:
+
 1. Fork the repository.
 2. Refer to the [local development guide](./docs/LOCAL_DEVELOPMENT.md) to set up your environment.
 3. Follow the project's [Code of Conduct](./CODE_OF_CONDUCT.md) and guidelines.
@@ -157,6 +160,7 @@ This project comes with comprehensive documentation to help you get started:
 ## 🏆 Why This Starter Kit?
 
 This project serves as the foundation for building scalable, serverless solutions while incorporating modern development practices. By using this kit, you can:
+
 - Accelerate project setup for serverless architectures.
 - Maintain clean, modular code with TSyringe.
 - Streamline your development lifecycle with built-in CI/CD pipelines.
@@ -167,22 +171,6 @@ This project serves as the foundation for building scalable, serverless solution
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 This project is meant to be a POC for the following tools:
 
 - Using SST/Ion for Infrastructure as a code and Resource management such as API and Queues Routing, SSL, DNS, etc
@@ -192,4 +180,3 @@ This project is meant to be a POC for the following tools:
 This project in particular solves a problem for some of my other side projects
 which is to provide a way to analyse images and create speech from these analysed images description,
 the goal is to be using the generated data to add accessibility features to my other projects.
-
