@@ -34,18 +34,21 @@ development.
 - **CI/CD with GitHub Actions Examples**  
   Pre-configured workflows for:
 
-  - Pull Request verification.
+  - Pull Request verification to enforce code Quality.
   - Automatic deployment of **temporary staging environments**(PR Environments) for PRs.
   - Seamless automated staging deployment.
   - Automated semantic versioning and Github Releases generation
+  - Dependency updates managed automatically
 
 - **Git Hooks Examples**
 
   - pre-commit Hook:
     - Automatic Formatting using Prettier to ensure consistent code formatting.
     - Code linting using ESLint.
+
   - commit-message Hook:
     - Enforce **Conventional Commits** for clear, semantic versioning and changelog generation.
+
   - pre-push Hook:
     - Run tests before pushing to the remote repository.
 
@@ -130,19 +133,10 @@ This project serves as the foundation for building scalable, serverless solution
 - Accelerate project setup for serverless architectures.
 - Maintain clean, modular code with TSyringe.
 - Streamline your development lifecycle with built-in CI/CD pipelines.
+- Have a collaborative ready environment to enforce and share good practices 
 
 ---
 
 ## 📢 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
-
-This project is meant to be a POC for the following tools:
-
-- Using SST/Ion for Infrastructure as a code and Resource management such as API and Queues Routing, SSL, DNS, etc
-- Using TSyringe for Dependency Injection without having to use a framework like NestJS
-- Using GitHub Actions for CI/CD
-
-This project in particular solves a problem for some of my other side projects
-which is to provide a way to analyse images and create speech from these analysed images description,
-the goal is to be using the generated data to add accessibility features to my other projects.
