@@ -1,39 +1,5 @@
 # SST OOP Starter Kit
 
-The SST OOP Starter Kit is a boilerplate designed for building enterprise-grade serverless applications using the Serverless Stack Toolkit (SST). It incorporates Object-Oriented Programming (OOP) principles, lightweight dependency injection with TSyringe, and out-of-the-box enterprise configurations like CI/CD workflows, pre-configured Git hooks, and more.
-
-This project aims to provide developers with a collaborative, production-ready foundation for serverless application development.
-
-## 🔥 Key Features
-
-### Core Frameworks & Tools
-
-- **SST**: Serverless Stack Toolkit (SST) is a framework that makes it easy to build serverless applications. It's designed to work with the AWS CDK and AWS SAM.
-- **TSyringe**: Automatic Dependency Injection using TSyringe, a lightweight dependency injection container for TypeScript/JavaScript.
-- **Prettier**: Code formatting using Prettier.
-- **ESLint**: Linting using ESLint.
-- **Jest**: Testing using Jest.
-
-### Built-in Enterprise Configurations
-
-- **GitHub Actions**: CI/CD using GitHub Actions for PR verification and deployment of temporary staging environments for pull requests.
-- **(Git Hooks)**: Pre-commit hooks for linting and formatting code before committing.
-
-...You only have to fork this repository, run `sst dev` and start coding!
-
-## For Reviewers and Developers
-
-If you are looking to review/develop/fork this project, please refer to the following documentation:
-
-- [Running the project locally](./docs/LOCAL_DEVELOPMENT.md)
-- [Project Structure](./docs/PROJECT_STRUCTURE.md)
-- [Git Hooks Documentation](./docs/GIT_HOOKS.md)
-- [Conventional Commits](./docs/CONVENTIONAL_COMMITS.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
-- [CI/CD](./docs/CI&CD.md)
-
-# SST OOP Starter Kit
-
 The **SST OOP Starter Kit** is a boilerplate designed for building **enterprise-grade serverless applications**
 using the **Serverless Stack Toolkit (SST)**. It incorporates **Object-Oriented Programming (OOP)** principles,
 lightweight **dependency injection with TSyringe**, and out-of-the-box enterprise configurations like CI/CD workflows,
