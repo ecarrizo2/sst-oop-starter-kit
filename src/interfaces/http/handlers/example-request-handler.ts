@@ -3,8 +3,8 @@ import { container } from 'tsyringe'
 import { LoggerService } from '@shared/logger/logger.service'
 import { getValidatedRequestInputValueObject } from '@interfaces/http/aws-http-api-gateway-event.helper'
 import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda'
-import { handleRequest } from '@interfaces/http/handlers/request-handler'
-import { SendMessageToQueueExampleRequestDto } from '@interfaces/http/dto/send-message-to-queue-example-request.dto'
+import { handleRequest } from '@interfaces/http/handlers/request-handler.helper'
+import { ExampleRequestDto } from '@interfaces/http/dto/example-request.dto'
 
 /**
  * Example Handler for a Given Request with input validation
@@ -17,7 +17,7 @@ export async function handle(event: APIGatewayEvent): Promise<APIGatewayProxyRes
     const logger = container.resolve(LoggerService)
     logger.info('HTTP Request received', eventArg)
 
-    const input = await getValidatedRequestInputValueObject(event, SendMessageToQueueExampleRequestDto)
+    const input = await getValidatedRequestInputValueObject(event, ExampleRequestDto)
 
     logger.debug('Request input', input)
     return {

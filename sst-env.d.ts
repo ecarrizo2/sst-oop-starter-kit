@@ -1,35 +1,19 @@
 /* tslint:disable */
- 
+
 import "sst"
 declare module "sst" {
   export interface Resource {
-    "Api": {
+    "ExampleAPI": {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
-    "ImageDynamo": {
-      "name": string
-      "type": "sst.aws.Dynamo"
-    }
-    "JobDynamo": {
-      "name": string
-      "type": "sst.aws.Dynamo"
-    }
-    "OpenaiApiKey": {
-      "type": "sst.sst.Secret"
-      "value": string
-    }
-    "ProcessImageDeadLetterQueue": {
+    "ExampleDeadLetterQueue": {
       "type": "sst.aws.Queue"
       "url": string
     }
-    "ProcessImageQueue": {
+    "ExampleQueue": {
       "type": "sst.aws.Queue"
       "url": string
-    }
-    "SpeechBucket": {
-      "type": "sst.aws.Bucket"
-      "name": string
     }
   }
 }
