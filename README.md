@@ -1,39 +1,5 @@
 # SST OOP Starter Kit
 
-The SST OOP Starter Kit is a boilerplate designed for building enterprise-grade serverless applications using the Serverless Stack Toolkit (SST). It incorporates Object-Oriented Programming (OOP) principles, lightweight dependency injection with TSyringe, and out-of-the-box enterprise configurations like CI/CD workflows, pre-configured Git hooks, and more.
-
-This project aims to provide developers with a collaborative, production-ready foundation for serverless application development.
-
-## 🔥 Key Features
-
-### Core Frameworks & Tools
-
-- **SST**: Serverless Stack Toolkit (SST) is a framework that makes it easy to build serverless applications. It's designed to work with the AWS CDK and AWS SAM.
-- **TSyringe**: Automatic Dependency Injection using TSyringe, a lightweight dependency injection container for TypeScript/JavaScript.
-- **Prettier**: Code formatting using Prettier.
-- **ESLint**: Linting using ESLint.
-- **Jest**: Testing using Jest.
-
-### Built-in Enterprise Configurations
-
-- **GitHub Actions**: CI/CD using GitHub Actions for PR verification and deployment of temporary staging environments for pull requests.
-- **(Git Hooks)**: Pre-commit hooks for linting and formatting code before committing.
-
-...You only have to fork this repository, run `sst dev` and start coding!
-
-## For Reviewers and Developers
-
-If you are looking to review/develop/fork this project, please refer to the following documentation:
-
-- [Running the project locally](./docs/LOCAL_DEVELOPMENT.md)
-- [Project Structure](./docs/PROJECT_STRUCTURE.md)
-- [Git Hooks Documentation](./docs/GIT_HOOKS.md)
-- [Conventional Commits](./docs/CONVENTIONAL_COMMITS.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
-- [CI/CD](./docs/CI&CD.md)
-
-# SST OOP Starter Kit
-
 The **SST OOP Starter Kit** is a boilerplate designed for building **enterprise-grade serverless applications**
 using the **Serverless Stack Toolkit (SST)**. It incorporates **Object-Oriented Programming (OOP)** principles,
 lightweight **dependency injection with TSyringe**, and out-of-the-box enterprise configurations like CI/CD workflows,
@@ -68,18 +34,23 @@ development.
 - **CI/CD with GitHub Actions Examples**  
   Pre-configured workflows for:
 
-  - Pull Request verification.
+  - Pull Request verification to enforce code Quality.
   - Automatic deployment of **temporary staging environments**(PR Environments) for PRs.
   - Seamless automated staging deployment.
   - Automated semantic versioning and Github Releases generation
+  - Dependency updates managed automatically
 
 - **Git Hooks Examples**
 
   - pre-commit Hook:
+
     - Automatic Formatting using Prettier to ensure consistent code formatting.
     - Code linting using ESLint.
+
   - commit-message Hook:
+
     - Enforce **Conventional Commits** for clear, semantic versioning and changelog generation.
+
   - pre-push Hook:
     - Run tests before pushing to the remote repository.
 
@@ -164,19 +135,10 @@ This project serves as the foundation for building scalable, serverless solution
 - Accelerate project setup for serverless architectures.
 - Maintain clean, modular code with TSyringe.
 - Streamline your development lifecycle with built-in CI/CD pipelines.
+- Have a collaborative ready environment to enforce and share good practices
 
 ---
 
 ## 📢 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
-
-This project is meant to be a POC for the following tools:
-
-- Using SST/Ion for Infrastructure as a code and Resource management such as API and Queues Routing, SSL, DNS, etc
-- Using TSyringe for Dependency Injection without having to use a framework like NestJS
-- Using GitHub Actions for CI/CD
-
-This project in particular solves a problem for some of my other side projects
-which is to provide a way to analyse images and create speech from these analysed images description,
-the goal is to be using the generated data to add accessibility features to my other projects.

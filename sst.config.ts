@@ -21,7 +21,7 @@ const exampleQueue = () => {
         partialResponses: true,
         size: 1,
       },
-    },
+    }
   )
 
   return queue
@@ -53,7 +53,7 @@ export default $config({
 
     return {
       exampleSQS: exampleQueueResource.url,
-      exampleAPI: exampleAPIResource.url
+      exampleAPI: exampleAPIResource.url,
     }
   },
 })
