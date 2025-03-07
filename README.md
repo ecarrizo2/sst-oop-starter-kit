@@ -15,7 +15,7 @@ development.
 ### Core Frameworks & Tools
 
 - **SST**  
-  Build and manage serverless applications seamlessly using the **Serverless Stack Toolkit**, powered by AWS CDK.
+  Build and manage serverless applications seamlessly using the **Serverless Stack Toolkit**
 
 - **TSyringe**  
   Use **automatic dependency injection** via TSyringe for clean, testable, and modular code without relying on a heavyweight framework like NestJS.
