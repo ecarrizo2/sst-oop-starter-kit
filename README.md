@@ -43,10 +43,12 @@ development.
 - **Git Hooks Examples**
 
   - pre-commit Hook:
+
     - Automatic Formatting using Prettier to ensure consistent code formatting.
     - Code linting using ESLint.
 
   - commit-message Hook:
+
     - Enforce **Conventional Commits** for clear, semantic versioning and changelog generation.
 
   - pre-push Hook:
@@ -133,7 +135,7 @@ This project serves as the foundation for building scalable, serverless solution
 - Accelerate project setup for serverless architectures.
 - Maintain clean, modular code with TSyringe.
 - Streamline your development lifecycle with built-in CI/CD pipelines.
-- Have a collaborative ready environment to enforce and share good practices 
+- Have a collaborative ready environment to enforce and share good practices
 
 ---
 
