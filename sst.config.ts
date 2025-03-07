@@ -30,7 +30,7 @@ const exampleQueue = () => {
 const exampleAPI = (exampleQueueResource: any) => {
   const exampleAPIResource = new sst.aws.ApiGatewayV2('ExampleAPI')
   exampleAPIResource.route('POST /', {
-    handler: 'src/interfaces/http/handlers/eample-request-handler.handle',
+    handler: 'src/interfaces/http/handlers/example-request-handler.handle',
     link: [exampleQueueResource],
     environment,
   })
