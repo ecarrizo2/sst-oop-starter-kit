@@ -33,7 +33,6 @@ development.
 
 - **CI/CD with GitHub Actions Examples**  
   Pre-configured workflows for:
-
   - Pull Request verification to enforce code Quality.
   - Automatic deployment of **temporary staging environments**(PR Environments) for PRs.
   - Seamless automated staging deployment.
@@ -41,14 +40,11 @@ development.
   - Dependency updates managed automatically
 
 - **Git Hooks Examples**
-
   - pre-commit Hook:
-
     - Automatic Formatting using Prettier to ensure consistent code formatting.
     - Code linting using ESLint.
 
   - commit-message Hook:
-
     - Enforce **Conventional Commits** for clear, semantic versioning and changelog generation.
 
   - pre-push Hook:
