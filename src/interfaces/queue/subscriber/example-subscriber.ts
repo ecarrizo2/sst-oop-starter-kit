@@ -8,13 +8,13 @@ import { LoggerService } from '@shared/logger/logger.service'
  * Handle a Queue Event this Queue and its handler is used to process SQS messages
  * The Queue messages will be processed one by one instead of using batch operations
  * TODO/Note: This handler assumes that the event only send one record at a time.
- * TODO2: Try catch can be moved to a common place to avoid repetition cross-subscribers
  *
  */
 export const handle = (event: AWSLambda.SQSEvent) => {
   const record = event.Records[0]
   initializeQueueContainer(record)
   const logger = container.resolve(LoggerService)
+  logger.debug(`Processing SQS message`, { messageId: record.messageId, body: record.body })
 
   try {
     return { batchItemFailures: [] }

@@ -15,13 +15,14 @@ const exampleQueue = () => {
     {
       handler: 'src/interfaces/queue/subscriber/example-subscriber.handle',
       link: [],
+      environment
     },
     {
       batch: {
         partialResponses: true,
         size: 1,
       },
-    }
+    },
   )
 
   return queue
@@ -42,7 +43,7 @@ export default $config({
   app(input: { stage: string }) {
     return {
       name: 'sst-oop-starter-kit',
-      removal: input?.stage === 'production' ? 'retain' : 'remove',
+      removal: input?.stage === 'production' ? 'remove' : 'remove',
       home: 'aws',
     }
   },
